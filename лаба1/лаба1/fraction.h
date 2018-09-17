@@ -8,7 +8,8 @@ using std::ostream;
 template <class T>
 class fraction
 {
-static_assert(std::is_same<T, int>::value || std::is_same<T, double>::value || std::is_same<T, float>::value, "недопустимый тип");	//отметаем неподходящие типы
+	//отметаем неподходящие типы
+	static_assert(std::is_same<T, int>::value || std::is_same<T, double>::value || std::is_same<T, float>::value, "недопустимый тип");	
 
 private:
 	T m_nmr;	//числитель
@@ -19,14 +20,14 @@ public:
 	fraction(T nmr, T dnm);
 	~fraction();
 
-	fraction<T> operator+(const fraction& fr2) const;
-	fraction<T> operator-(const fraction& fr2) const;
-	fraction<T> operator*(const fraction& fr2) const;
-	fraction<T> operator/(const fraction& fr2) const;
+	fraction<T> operator+ (const fraction& fr2) const;
+	fraction<T> operator- (const fraction& fr2) const;
+	fraction<T> operator* (const fraction& fr2) const;
+	fraction<T> operator/ (const fraction& fr2) const;
 
 	friend ostream& operator<< (ostream& out, fraction<T> fr)
 	{
-		out << fr.m_nmr << '/' << fr.m_dnm << endl;
+		out << fr.m_nmr << '/' << fr.m_dnm;
 		return out;
 	}
 
@@ -44,6 +45,8 @@ public:
 	
 };
 
+
+//перенести реализацию сюда
 /*
 template <class T>
 ostream& operator<< (ostream& out, fraction<T> fr)
