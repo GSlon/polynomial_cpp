@@ -4,25 +4,6 @@
 #define FRAC_H
 #include "fraction.h"
 
-//алгоритм Евклида (для избавления от сокращаемых дробей)
-/*template <typename N>
-N Nod(N a, N b) 
-{
-	while (a != b) 
-	{
-		if (a > b) 
-		{
-			a = a - b;
-		}
-		else 
-		{
-			b = b - a;
-		}
-	}
-	return a;
-}
-*/
-
 template <class T>
 fraction<T>::fraction()
 {
@@ -43,31 +24,45 @@ fraction<T>::~fraction()
 }
 
 template <class T>
-fraction<T> fraction<T>::operator+(const fraction& fr2) const
+fraction<T> fraction<T>::operator+ (const fraction& fr2) const
 {
 	fraction newfr;
 	newfr.m_nmr = this->m_nmr * fr2.m_dnm + fr2.m_nmr * this->m_dnm;
 	newfr.m_dnm = this->m_dnm * fr2.m_dnm;
 		
-	//сделать сокращение int дробей
 	return newfr;
 }
 
-/*
 template <class T>
-ostream& operator<< (ostream& out, fraction<T> fr)
+fraction<T> fraction<T>::operator- (const fraction& fr2) const
 {
-	out << fr.m_nmr << '/' << fr.m_dnm << endl;
-	return out;
+	fraction newfr;
+	newfr.m_nmr = this->m_nmr * fr2.m_dnm - fr2.m_nmr * this->m_dnm;
+	newfr.m_dnm = this->m_dnm * fr2.m_dnm;
+
+	return newfr;
 }
 
 template <class T>
-istream& operator<< (istream& in, fraction<T> fr)
+fraction<T> fraction<T>::operator* (const fraction& fr2) const
 {
-	in >> fr.m_nmr >> fr.m_dnm;
-	return in;
+	fraction newfr;
+	newfr.m_nmr = this->m_nmr * fr2.m_nmr;
+	newfr.m_dnm = this->m_dnm * fr2.m_dnm;
+
+	return newfr;
 }
-*/
+
+template <class T>
+fraction<T> fraction<T>::operator/ (const fraction& fr2) const
+{
+	fraction newfr;
+	newfr.m_nmr = this->m_nmr * fr2.m_dnm;
+	newfr.m_dnm = this->m_dnm * fr2.m_nmr;
+
+	return newfr;
+}
+
 
 
 #endif // !FRAC_H
