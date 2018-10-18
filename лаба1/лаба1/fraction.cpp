@@ -1,8 +1,7 @@
 #include "stdafx.h"
 
-#ifndef FRAC_H
-#define FRAC_H
-#include "fraction.h"
+#pragma once
+//#include "fraction.h"
 
 template <class T>
 fraction<T>::fraction()
@@ -14,6 +13,11 @@ fraction<T>::fraction()
 template <class T>
 fraction<T>::fraction(T nmr, T dnm)
 {
+	if (dnm == 0)
+	{
+		throw std::invalid_argument("division by zero");
+	}
+
 	m_nmr = nmr;
 	m_dnm = dnm;
 }
@@ -59,10 +63,20 @@ fraction<T> fraction<T>::operator/ (const fraction& fr2) const
 	fraction newfr;
 	newfr.m_nmr = this->m_nmr * fr2.m_dnm;
 	newfr.m_dnm = this->m_dnm * fr2.m_nmr;
+	
+	if (newfr.m_dnm == 0)
+	{
+		throw std::invalid_argument("division by zero");
+	}
 
 	return newfr;
 }
 
+template <class T>
+fraction<T> fraction<T>::operator= (const fraction& fr2)
+{
+	this->m_nmr = fr2.m_nmr;
+	this->m_dnm = fr2.m_dnm;
 
-
-#endif // !FRAC_H
+	return *this;
+}

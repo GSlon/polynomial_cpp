@@ -24,15 +24,18 @@
     <ClInclude Include="fraction.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="matrix.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="polynomial.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="лаба1.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="fraction.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

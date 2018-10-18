@@ -1,2 +1,4 @@
 ﻿  лаба1.cpp
-  лаба1.vcxproj -> F:\проекты_visual_studio\лаба1\x64\Debug\лаба1.exe
+f:\проекты_visual_studio\laba1\лаба1\лаба1\polynomial.h(406): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  f:\проекты_visual_studio\laba1\лаба1\лаба1\лаба1.cpp(148): note: выполняется компиляция ссылки на экземпляр шаблон функции "std::ostream &operator <<<2,fraction<int>>(std::ostream &,const polynomial<matrix<2,fraction<int>>> &)"
+  лаба1.vcxproj -> F:\проекты_visual_studio\laba1\лаба1\x64\Debug\лаба1.exe
