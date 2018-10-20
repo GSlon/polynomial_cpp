@@ -246,8 +246,10 @@ inline bool matrix<cdim, T>::operator==(int num) const
 {
 	for (int i = 0; i < cdim; i++)
 		for (int j = 0; j < cdim; j++)
+		{
 			if (this->m_mtr[i][j] != num)
 				return false;
+		}
 
 	return true;
 }
@@ -257,8 +259,10 @@ inline bool matrix<cdim, T>::operator!=(int num) const
 {
 	for (int i = 0; i < cdim; i++)
 		for (int j = 0; j < cdim; j++)
+		{
 			if (this->m_mtr[i][j] != num)
 				return true;
+		}
 
 	return false;
 }

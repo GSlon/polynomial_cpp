@@ -195,8 +195,11 @@ inline polynomial<T> polynomial<T>::operator/ (const polynomial<T>& pol) const
 
 	while (true)
 	{
+		if (temp.m_pol.empty())
+			return result;
+
 		auto itTemp = temp.m_pol.end();
-		--itTemp;	// последний элемент
+		--itTemp;	// последний элемент 
 
 		if (itTemp->first < itPol->first)	// знаменатель более высокого порядка
 			return result;	// возвращаем 0 (в случае, если true сразу)
@@ -229,6 +232,12 @@ inline polynomial<T> polynomial<T>::operator% (const polynomial<T>& pol) const
 
 	while (true)
 	{
+		if (result.m_pol.empty())
+		{
+			result.m_pol.insert(pair<int, T> (0, 0));
+			return result;
+		}
+
 		auto itRes = result.m_pol.end();
 		--itRes;
 
