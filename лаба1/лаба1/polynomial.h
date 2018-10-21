@@ -90,12 +90,16 @@ template<class T>
 inline polynomial<T>::polynomial(int degree)
 {
 	m_pol.insert(pair<int, T>(degree, T(0)));
+	if (degree != 0)
+		m_pol.insert(pair<int, T>(0, T(0)));
 }
 
 template<class T>
 inline polynomial<T>::polynomial(int degree, T koef)
 {
 	m_pol.insert(pair<int, T>(degree, koef));
+	if (degree != 0)
+		m_pol.insert(pair<int, T>(0, T(0)));
 }
 
 template<class T>
@@ -335,6 +339,9 @@ inline polynomial<T> polynomial<T>::suppos(const polynomial<T> &pol) const
 template<class T>
 inline void polynomial<T>::zeroChecked()
 {
+	// if (this->m_pol.size() == 1)	// только нулевой член
+	//	return;
+
 	vector<int> save;
 	for (auto iter = this->m_pol.begin(); iter != this->m_pol.end(); ++iter)
 	{
@@ -464,7 +471,7 @@ inline istream& operator>> (istream& in, polynomial<T>& pol)
 	return in;
 }
 
-template<class T, class U>
+template<class U>
 inline fraction<U> pow(const fraction<U> &arg , int degree)
 {
 	if (degree == 0)
@@ -475,7 +482,7 @@ inline fraction<U> pow(const fraction<U> &arg , int degree)
 			fraction<U> newarg(arg);
 			newarg = 1 / newarg;
 			for (int i = degree; i > 1; i--)
-				newarg *= newarg;
+				newarg = newarg * newarg;
 
 			return newarg;
 		}

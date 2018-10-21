@@ -216,7 +216,7 @@ inline matrix<cdim, T> matrix<cdim, T>::operator* (const T &num) const
 
 	for (int i = 0; i < cdim; i++)
 		for (int j = 0; j < cdim; j++)
-			newmatrix.m_mtr[i][j] *= num;
+			newmatrix.m_mtr[i][j] = newmatrix.m_mtr[i][j] * num;
 
 	return newmatrix;
 }
